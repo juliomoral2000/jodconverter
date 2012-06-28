@@ -41,6 +41,11 @@ class UnoUrl {
         return new UnoUrl(socketString, socketString + ",tcpNoDelay=1");
     }
 
+    public static UnoUrl socket(String hostIp, int port) {
+        String socketString = "socket,host="+hostIp+",port=" + port;
+        return new UnoUrl(socketString, socketString + ",tcpNoDelay=1");
+    }
+
     public static UnoUrl pipe(String pipeName) {
         String pipeString = "pipe,name=" + pipeName;
         return new UnoUrl(pipeString, pipeString);

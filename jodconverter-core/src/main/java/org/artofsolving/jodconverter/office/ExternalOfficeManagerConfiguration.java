@@ -16,6 +16,7 @@ public class ExternalOfficeManagerConfiguration {
 
     private OfficeConnectionProtocol connectionProtocol = OfficeConnectionProtocol.SOCKET;
     private int portNumber = 2002;
+    private String hostIp = "127.0.0.1";
     private String pipeName = "office";
     private boolean connectOnStart = true;
 
@@ -34,13 +35,24 @@ public class ExternalOfficeManagerConfiguration {
         return this;
     }
 
+    public ExternalOfficeManagerConfiguration setHostIp(String hostIp) {
+        this.hostIp = hostIp;
+        return this;
+    }
+
+    public ExternalOfficeManagerConfiguration setSocketParam(String hostIp, int portNumber) {
+        this.hostIp = hostIp;
+        this.portNumber = portNumber;
+        return this;
+    }
     public ExternalOfficeManagerConfiguration setConnectOnStart(boolean connectOnStart) {
         this.connectOnStart = connectOnStart;
         return this;
     }
 
     public OfficeManager buildOfficeManager() {
-        UnoUrl unoUrl = connectionProtocol == OfficeConnectionProtocol.SOCKET ? UnoUrl.socket(portNumber) : UnoUrl.pipe(pipeName);
+        //UnoUrl unoUrl = connectionProtocol == OfficeConnectionProtocol.SOCKET ? UnoUrl.socket(portNumber) : UnoUrl.pipe(pipeName);
+        UnoUrl unoUrl = connectionProtocol == OfficeConnectionProtocol.SOCKET ? UnoUrl.socket(hostIp, portNumber) : UnoUrl.pipe(pipeName);
         return new ExternalOfficeManager(unoUrl, connectOnStart);
     }
 

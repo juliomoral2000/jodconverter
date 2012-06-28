@@ -1,12 +1,11 @@
 JODConverter
 ============
 
-JODConverter (for Java OpenDocument Converter) automates document conversions
-using LibreOffice or OpenOffice.org.
+JODConverter (para convertidor Java de OpenDocument) automatiza la conversión de documentos
+usando LibreOffice u OpenOffice.org.
 
-I started this project back in 2003, but I am no longer maintaining it. I moved
-the code here at GitHub in the hope that a well-maintained fork will emerge.
+Comencé este proyecto en 2003, pero ya no estoy manteniendolo. Mudé
+el código aquí en GitHub en la esperanza de que un tenedor bien mantenido surgirá.
 
-See the [Google Code](http://code.google.com/p/jodconverter/) project for more
-info.
-
+Vea [Google Code] (http://code.google.com/p/jodconverter/) del proyecto para obtener más
+información.
