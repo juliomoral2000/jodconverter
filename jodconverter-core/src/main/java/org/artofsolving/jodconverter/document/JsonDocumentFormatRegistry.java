@@ -28,11 +28,11 @@ public class JsonDocumentFormatRegistry extends SimpleDocumentFormatRegistry {
         readJsonArray(IOUtils.toString(input));
     }
 
-    public JsonDocumentFormatRegistry(String source) throws JSONException {
+    public JsonDocumentFormatRegistry(String source) throws org.json.JSONException {
         readJsonArray(source);
     }
 
-    private void readJsonArray(String source) throws JSONException {
+    private void readJsonArray(String source) throws org.json.JSONException {
         JSONArray array = new JSONArray(source);
         for (int i = 0; i < array.length(); i++) {
             JSONObject jsonFormat = array.getJSONObject(i);
@@ -57,7 +57,7 @@ public class JsonDocumentFormatRegistry extends SimpleDocumentFormatRegistry {
         }
     }
 
-    private Map<String,?> toJavaMap(JSONObject jsonMap) throws JSONException {
+    private Map<String,?> toJavaMap(JSONObject jsonMap) throws org.json.JSONException {
         Map<String,Object> map = new HashMap<String,Object>();
         for (String key : JSONObject.getNames(jsonMap)) {
             Object value = jsonMap.get(key);

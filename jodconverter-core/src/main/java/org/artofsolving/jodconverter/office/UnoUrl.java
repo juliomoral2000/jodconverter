@@ -59,6 +59,9 @@ class UnoUrl {
         return connectString;
     }
 
+    public String getServerConnectString(){
+        return "uno:"+acceptString+";urp;StarOffice.ServiceManager";
+    }
     @Override
     public String toString() {
         return connectString;

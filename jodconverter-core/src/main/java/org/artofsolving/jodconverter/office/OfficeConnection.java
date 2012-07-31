@@ -33,17 +33,17 @@ import com.sun.star.uno.XComponentContext;
 
 class OfficeConnection implements OfficeContext {
 
-    private static AtomicInteger bridgeIndex = new AtomicInteger();
+    protected static AtomicInteger bridgeIndex = new AtomicInteger();
 
-    private final UnoUrl unoUrl;
+    protected final UnoUrl unoUrl;
 
-    private XComponent bridgeComponent;
-    private XMultiComponentFactory serviceManager;
-    private XComponentContext componentContext;
+    protected XComponent bridgeComponent;
+    protected XMultiComponentFactory serviceManager;
+    protected XComponentContext componentContext;
 
-    private final List<OfficeConnectionEventListener> connectionEventListeners = new ArrayList<OfficeConnectionEventListener>();
+    protected final List<OfficeConnectionEventListener> connectionEventListeners = new ArrayList<OfficeConnectionEventListener>();
 
-    private volatile boolean connected = false;
+    protected volatile boolean connected = false;
 
     private XEventListener bridgeListener = new XEventListener() {
         public void disposing(EventObject event) {
@@ -59,7 +59,7 @@ class OfficeConnection implements OfficeContext {
         }
     };
 
-    private final Logger logger = Logger.getLogger(getClass().getName());
+    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     public OfficeConnection(UnoUrl unoUrl) {
         this.unoUrl = unoUrl;

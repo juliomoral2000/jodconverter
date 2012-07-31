@@ -60,7 +60,7 @@ public class Convert {
         return options;
     }
 
-    public static void main(String[] arguments) throws ParseException, JSONException, IOException {
+    public static void main(String[] arguments) throws ParseException, org.json.JSONException, IOException {
         CommandLineParser commandLineParser = new PosixParser();
         CommandLine commandLine = commandLineParser.parse(OPTIONS, arguments);
 
